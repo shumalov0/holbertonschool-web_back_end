@@ -7,7 +7,7 @@ export const taskFirst=() =>{
     return ' is okay';
   }
   
-  export const taskNext=()=> {
+  export let taskNext=()=> {
     var combination = 'But sometimes let';
     combination += getLast();
   
