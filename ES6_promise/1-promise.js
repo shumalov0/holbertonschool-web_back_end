@@ -1,12 +1,13 @@
-function getFullResponseFromAPI() {
+// Only make Promise
+function getResponseFromAPI() {
   return new Promise((resolve, reject) => {
-    if (resolve) {
-      status: 200;
-      body: "Success";
+    /* eslint-disable */
+    if (true) {
+      resolve({ tatus: 200, body: "Success" });
     } else {
-      ("The fake API is not working currently");
+      reject("The fake API is not working currently");
     }
+    /* eslint-enable */
   });
 }
-
-export default getFullResponseFromAPI;
+export default getResponseFromAPI;
