@@ -1,4 +1,14 @@
-import getResponseFromAPI from "./0-promise.js";
-
-const response = getResponseFromAPI();
-console.log(response instanceof Promise);  
+// Only make Promise
+function getResponseFromAPI() {
+    return new Promise((resolve, reject) => {
+      /* eslint-disable */
+        if (true) {
+          resolve();
+        } else {
+          reject();
+        }
+        /* eslint-enable */
+    });
+  }
+  
+  export default getResponseFromAPI;
