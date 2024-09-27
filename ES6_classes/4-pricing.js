@@ -1,6 +1,8 @@
 import Currency from "./3-currency";
+
 export default class Pricing {
-  constructor(currency, amount = "") {
+  constructor(currency, amount = 0) {
+    // Default parametr sonda olmalıdır
     this.amount = amount;
     this.currency = currency;
   }
@@ -15,11 +17,11 @@ export default class Pricing {
 
   static convertPrice(amount = 0, conversionRate = 0) {
     if (typeof amount !== "number") {
-      throw new TypeError("amount must be a string");
+      throw new TypeError("amount must be a number"); // Xəta mesajını düzəltdim
     }
 
     if (typeof conversionRate !== "number") {
-      throw new TypeError("conversionRate must be a string");
+      throw new TypeError("conversionRate must be a number"); // Xəta mesajını düzəltdim
     }
 
     return amount * conversionRate;
@@ -31,7 +33,7 @@ export default class Pricing {
 
   set amount(value) {
     if (typeof value !== "number") {
-      throw new TypeError("amount must be a number");
+      throw new TypeError("amount must be a number"); // Yoxlama üçün ədəd olmalıdır
     }
     this._amount = value;
   }
@@ -42,7 +44,7 @@ export default class Pricing {
 
   set currency(value) {
     if (!(value instanceof Currency)) {
-      throw new TypeError("currency must be a Currency");
+      throw new TypeError("currency must be a Currency"); // Düzgün növ yoxlaması
     }
     this._currency = value;
   }
