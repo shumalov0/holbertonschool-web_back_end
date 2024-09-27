@@ -1,7 +1,7 @@
 import Currency from './3-currency';
 
 export default class Pricing {
-  constructor(amount = '', currency) {
+  constructor( currency,amount = '') {
     this.amount = amount;
     this.currency = currency;
   }
@@ -10,7 +10,6 @@ export default class Pricing {
     const code = (this.currency._code);
     const name = (this.currency._name);
     const money = `${this.amount} ${name} (${code})`;
-
     return money;
   }
 
