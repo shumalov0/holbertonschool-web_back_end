@@ -2,8 +2,8 @@ import Currency from './3-currency';
 
 export default class Pricing {
   constructor( currency,amount = '') {
-    this.amount = amount;
     this.currency = currency;
+    this.amount = amount;
   }
 
   displayFullPrice() {
