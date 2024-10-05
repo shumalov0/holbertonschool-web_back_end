@@ -1,16 +1,25 @@
 #!/usr/bin/env python3
-''' Description: Import async_generator from the previous task and then write
-                 a coroutine called async_comprehension that takes no arguments
-                 The coroutine will collect 10 random numbers using an async
-                 comprehensing over async_generator, then return the 10 random
-                 numbers.
-'''
-
+''' Run multiple coroutines concurrently with asyncio '''
+import asyncio
 from typing import List
 
-async_generator = __import__('0-async_generator').async_generator
+# Import the wait_random function from the previous file/module
+wait_random = __import__('0-basic_async_syntax').wait_random
 
+async def wait_n(n: int = 0, max_delay: int = 10) -> List[float]:
+    '''
+    float time random
+    '''
+    delays: List[float] = []
+    tasks: List = []
 
-async def async_comprehension() -> List[float]:
-    ''' Return list of values yielded by async_generator. '''
-    return [value async for value in async_generator()]
+    # Create 'n' tasks to run wait_random concurrently
+    for _ in range(n):
+        tasks.append(asyncio.create_task(wait_random(max_delay)))
+
+    # Collect results as tasks complete
+    for task in asyncio.as_completed(tasks):
+        delay = await task
+        delays.append(delay)
+        
+    return delays
