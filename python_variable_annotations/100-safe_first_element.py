@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+'''
+Auqment function do duct type
+Arguments: lst: iterable[sequence]
+'''
+
+from typing import Sequence, Any, Union
+
+
+def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
+    ''' Return the first element of lst if there is any, otherwise None. '''
+    if lst:
+        return lst[0]
+    else:
+        return None
