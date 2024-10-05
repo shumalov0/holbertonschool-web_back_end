@@ -1,17 +1,20 @@
-""" continue at the same time witha sync """
+#!/usr/bin/env python3
+""" Async comprenhesion gen """
 import asyncio
-import random
 from typing import List
-wait_random = __import__('0-basic_async_syntax').wait_random
-async def wait_n(n: int = 0, max_delay: int = 10) -> List[float]:
+
+
+async_generator = __import__('0-async_generator').async_generator
+
+
+async def async_comprehension() -> List[float]:
     """
-    float time random
+        Generate numbers with async comprenhension
+
+        Args:
+            void
+
+        Return:
+            float random numbers
     """
-    delays: List[float] = []
-    tasks: List = []
-    for _ in range(n):
-        tasks.append(wait_random(max_delay))
-    for task in asyncio.as_completed((tasks)):
-        delay = await task
-        delays.append(delay)  
-    return delays
+    return ([i async for i in async_generator()])
