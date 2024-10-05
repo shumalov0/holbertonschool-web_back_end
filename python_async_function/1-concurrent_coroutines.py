@@ -18,5 +18,5 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
         delay = await task
         delays.append(delay)
     
-    # Return the delays sorted in ascending order (natural sorting happens due to async completion)
-    return delays
+    # Return the delays sorted in ascending order (because tasks complete in that order)
+    return sorted(delays)
