@@ -2,7 +2,6 @@
 ''' Run multiple coroutines concurrently with asyncio '''
 import asyncio
 from typing import List
-
 # Import the wait_random function from the previous file/module
 wait_random = __import__('0-basic_async_syntax').wait_random
 
