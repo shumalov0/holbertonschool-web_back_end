@@ -1,6 +1,8 @@
 const fs = require("fs");
+
 function countStudents(path) {
   let content;
+
   try {
     content = fs.readFileSync(path);
   } catch (err) {
@@ -8,10 +10,13 @@ function countStudents(path) {
   }
   content = content.toString().split("\n");
   let students = content.filter((item) => item);
+
   students = students.map((item) => item.split(","));
   const studetns_number = students.length ? students.length - 1 : 0;
+
   console.log(`Number of students: ${studetns_number}`);
   const fields = {};
+  
   for (const i in students) {
     if (i !== 0) {
       if (!fields[students[i][3]]) fields[students[i][3]] = [];
@@ -27,4 +32,5 @@ function countStudents(path) {
     );
   }
 }
+
 module.exports = countStudents;
